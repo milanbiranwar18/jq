@@ -45,7 +45,37 @@ def jq_with_dictionary_methods():
     print(obj1)
 
 
+def jq_module_with_dictionary():
+
+        
+    obj = jq.compile(".")
+    obj1 = obj.input([{"hi":42, "abc":"abcde"}, {"name":"milan", "city":"pune"}]).first()
+    print(obj1)
+
+    obj = jq.compile(".[]")
+    obj1 = obj.input([{"hi":42, "abc":"abcde"}, {"name":"milan", "city":"pune"}]).first()
+    print(obj1)
+
+    obj = jq.compile(".[0]")
+    obj1 = obj.input([{"hi":42, "abc":"abcde"}, {"name":"milan", "city":"pune"}]).first()
+    print(obj1)
+
+    obj = jq.compile(".[1]")
+    obj1 = obj.input([{"hi":42, "abc":"abcde"}, {"name":"milan", "city":"pune"}]).first()
+    print(obj1)
+
+    obj = jq.compile(".[2]")
+    obj1 = obj.input([{"hi":42, "abc":"abcde"}, {"name":"milan", "city":"pune"}, {"name":"raj", "city":"pune"}]).first()
+    print(obj1)
+
+    obj = jq.compile(".[2].name")
+    obj1 = obj.input([{"hi":42, "abc":"abcde"}, {"name":"milan", "city":"pune"}, {"name":"raj", "city":"pune"}]).first()
+    print(obj1)
+
+
+
 
 if __name__ == '__main__':
-    compile_method_with_dictionary_input()
-    jq_with_dictionary_methods()
+    # compile_method_with_dictionary_input()
+    # jq_with_dictionary_methods()
+    jq_module_with_dictionary()
